@@ -2,37 +2,48 @@
 
 export default function FooterPage() {
   return (
-    <footer className="relative bg-orange text-white py-16 px-8 flex flex-col items-center justify-center min-h-[300px] overflow-hidden">
-      <div className="flex flex-col md:flex-row w-full max-w-6xl justify-between items-center gap-8">
-        <div className="flex flex-col items-start gap-2">
-          <div className="flex items-center gap-2 mb-2">
+    <footer className="bg-orange text-white px-8 py-16">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+        {/* Left Section: Logo + Social */}
+        <div className="flex flex-col gap-6">
+          <div className="flex items-center gap-2">
             <img src="/whitefavicon.ico" alt="logo" className="w-8 h-8" />
             <span className="font-plak text-2xl font-bold">Edwance.AI</span>
           </div>
-          <span className="text-white/80">© Edwance.AI</span>
         </div>
-        <div className="flex flex-wrap gap-8 text-white/90 text-base">
-          <a href="#" className="hover:underline">
-            Company
-          </a>
-          <a href="#" className="hover:underline">
-            About Us
-          </a>
-          <a href="#" className="hover:underline">
-            Contact Us
-          </a>
-          <a href="#" className="hover:underline">
-            Blogs & News
-          </a>
-          <a href="#" className="hover:underline">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:underline">
-            Terms & Conditions
-          </a>
-          <a href="#" className="hover:underline">
-            Refund Policy
-          </a>
+
+        {/* Right Section: Two Columns of Links */}
+        <div className="grid grid-cols-2 gap-12 text-sm text-white/90">
+          {/* Column 1 */}
+          <div className="flex flex-col gap-2">
+            <span className="text-white font-semibold mb-2">Company</span>
+            <a href="#" className="hover:underline">
+              About us
+            </a>
+            <a href="#" className="hover:underline">
+              Contact Us
+            </a>
+            <a href="#" className="hover:underline">
+              Blogs & News
+            </a>
+          </div>
+
+          {/* Column 2 */}
+          <div className="flex flex-col gap-2">
+            <span className="text-white font-semibold mb-2">Legal</span>
+            <a href="#" className="hover:underline">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:underline">
+              Terms & Conditions
+            </a>
+            <a href="#" className="hover:underline">
+              Cancellation Policy
+            </a>
+            <a href="#" className="hover:underline">
+              Refund Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
