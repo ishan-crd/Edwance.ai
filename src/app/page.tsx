@@ -5,24 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
+    title: "EdQraft",
+    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    image: "/EdQraft.png",
+  },
+  {
     title: "EdPulse",
     text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
-    image: "/next.svg",
+    image: "/EdPulse.png",
   },
   {
-    title: "Slide 2",
-    text: "Random content for slide 2.",
-    image: "/vercel.svg",
+    title: "EdSight",
+    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    image: "/EdSight.png",
   },
   {
-    title: "Slide 3",
-    text: "Random content for slide 3.",
-    image: "/globe.svg",
-  },
-  {
-    title: "Slide 4",
-    text: "Random content for slide 4.",
-    image: "/file.svg",
+    title: "Edviser Tutor",
+    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    image: "/Edviser.png",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function Home() {
                 <img
                   src={slides[carouselIndex].image}
                   alt="slide"
-                  className="w-96 h-80 object-contain rounded-2xl bg-white/30 p-8 shadow-2xl"
+                  className="w-[600px] h-auto object-contain transition-all duration-500"
                 />
               </div>
             </motion.div>
@@ -132,7 +132,7 @@ export default function Home() {
         </div>
 
         {/* Dots */}
-        <div className="relative z-10 flex gap-2 justify-center mt-10">
+        <div className="relative z-10 flex gap-2 justify-center mt-20">
           {slides.map((_, i) => (
             <span
               key={i}
@@ -260,7 +260,7 @@ export default function Home() {
         </div>
 
         {/* Dots */}
-        <div className="relative z-10 flex gap-2 justify-center mt-10">
+        <div className="relative z-10 flex gap-2 justify-center mt-20">
           {Array.from({ length: Math.ceil(team.length / 2) }).map((_, i) => (
             <span
               key={i}
