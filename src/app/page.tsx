@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      {/* Contact Section */}
+
       <section className="relative min-h-[100vh] flex flex-col items-center justify-center px-4 py-24 bg-transparent overflow-hidden">
         <h2 className="text-4xl md:text-5xl font-plak font-bold text-neutral-black mb-3">
           Contact Us

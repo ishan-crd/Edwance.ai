@@ -3,13 +3,21 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="w-full flex justify-between items-center px-8 py-4 rounded-3xl bg-white/60 backdrop-blur-md shadow-lg mt-6 mx-auto max-w-6xl">
+    <nav
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl px-8 py-4 rounded-full 
+  bg-[#D4D4D4]/10 backdrop-blur-[153px] 
+  border border-white/15 shadow-[0_13.67px_146.07px_-15.95px_rgba(0,0,0,0.25)] 
+  flex justify-between items-center"
+    >
+      {/* Logo Section */}
       <div className="flex items-center gap-2">
         <img src="/favicon.ico" alt="logo" className="w-8 h-8" />
         <span className="font-plak text-2xl text-orange font-bold">
           Edwance.AI
         </span>
       </div>
+
+      {/* Nav Links */}
       <div className="flex items-center gap-6">
         <Link
           href="/"
@@ -29,7 +37,8 @@ export default function Navbar() {
         >
           Contact
         </Link>
-        <button className="bg-orange text-white px-6 py-2 rounded-xl font-poppins font-medium shadow-orange hover:bg-orangeDark transition">
+
+        <button className="bg-orange text-white px-6 py-2 rounded-xl font-poppins font-medium hover:bg-orangeDark transition">
           Request Demo
         </button>
       </div>
