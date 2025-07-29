@@ -63,8 +63,8 @@ export default function Home() {
   return (
     <main className="bg-transparent">
       {/* Home Section */}
-      <section className="flex flex-col items-center justify-center text-center py-32 relative bg-transparent">
-        <h1 className="text-5xl md:text-7xl font-plak font-extrabold leading-tight">
+      <section className="flex flex-col items-center justify-center text-center min-h-[100vh] pt-30 pb-25 relative bg-transparent">
+        <h1 className="text-6xl md:text-7xl font-plak font-extrabold leading-tight">
           <div className="text-neutral-black">The future of</div>
           <div className="relative inline-block pb-3">
             {" "}
@@ -77,10 +77,10 @@ export default function Home() {
           <div className="text-neutral-black">learning is here.</div>
         </h1>
         <div className="mt-8 flex gap-4 justify-center">
-          <button className="bg-orange text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-orange hover:bg-orangeDark transition">
-            Try Now
+          <button className="bg-orange text-white px-5 py-2.5 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
+            Try Now →
           </button>
-          <button className="border-2 border-orange text-orange px-8 py-4 rounded-xl font-semibold text-lg hover:bg-orange hover:text-white transition">
+          <button className="border border-orange text-orange px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
             Book a Demo
           </button>
         </div>
