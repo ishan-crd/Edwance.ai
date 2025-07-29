@@ -189,7 +189,7 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="mt-4 self-center bg-neutral-black text-white px-6 py-3 rounded-full font-poppins text-base hover:bg-neutral-800 transition"
+            className="mt-4 self-center bg-white text-black px-6 py-3 rounded-full font-poppins text-base hover:bg-neutral-100 transition  "
           >
             Send Enquiry →
           </button>
