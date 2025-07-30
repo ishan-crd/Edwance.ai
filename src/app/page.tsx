@@ -49,9 +49,17 @@ const team = [
   },
 ];
 
+const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "Products", href: "#products" },
+  { name: "Team", href: "#team" },
+  { name: "Contact", href: "#contact" },
+];
+
 export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [teamIndex, setTeamIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -62,38 +70,40 @@ export default function Home() {
 
   return (
     <main className="bg-transparent">
+
+
       {/* Home Section */}
-      <section className="flex flex-col items-center justify-center text-center min-h-[100vh] pt-30 pb-25 relative bg-transparent">
-        <h1 className="text-6xl md:text-7xl font-plak font-extrabold leading-tight">
+      <section id="home" className="flex flex-col items-center justify-center text-center min-h-[100vh] pt-20 md:pt-30 pb-16 md:pb-25 relative bg-transparent px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-plak font-extrabold leading-tight">
           <div className="text-neutral-black">The future of</div>
           <div className="relative inline-block pb-3">
             {" "}
             <span className="relative z-10 text-orange font-extrabold">
               Edwance
             </span>
-            <span className="absolute left-0 right-0 bottom-0 h-3 bg-orange rounded-full z-0 animate-pulse"></span>
+            <span className="absolute left-0 right-0 bottom-0 h-2 md:h-3 bg-orange rounded-full z-0 animate-pulse"></span>
           </div>
-
           <div className="text-neutral-black">learning is here.</div>
         </h1>
-        <div className="mt-8 flex gap-4 justify-center">
-          <button className="bg-orange text-white px-5 py-2.5 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
+        <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center w-full max-w-sm sm:max-w-none">
+          <button className="bg-orange text-white px-6 md:px-5 py-3 md:py-2.5 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
             Try Now →
           </button>
-          <button className="border border-orange text-orange px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
+          <button className="border border-orange text-orange px-6 md:px-5 py-3 md:py-2.5 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
             Book a Demo
           </button>
         </div>
       </section>
 
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-orange my-16 mx-auto w-[95%] rounded-[100px] py-24 shadow-md">
+      {/* Products Section */}
+      <section id="products" className="relative flex flex-col items-center justify-center overflow-hidden bg-orange my-8 md:my-16 mx-4 md:mx-auto w-[calc(100%-2rem)] md:w-[95%] rounded-[50px] md:rounded-[100px] h-[600px] md:h-[700px] shadow-md">
         {/* Carousel Content */}
-        <div className="relative z-10 flex items-center justify-center gap-8 w-full max-w-7xl px-6">
+        <div className="relative z-10 flex items-center justify-center gap-2 md:gap-8 w-full max-w-7xl px-4 md:px-6 h-full">
           <button
             onClick={() =>
               setCarouselIndex((i) => (i - 1 + slides.length) % slides.length)
             }
-            className="text-white text-3xl px-4"
+            className="text-white text-2xl md:text-3xl px-2 md:px-4 flex-shrink-0"
           >
             &#8592;
           </button>
@@ -104,35 +114,35 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row items-center gap-16 w-full"
+              className="flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full"
             >
-              <div className="flex-1 text-left text-white max-w-lg">
-                <h3 className="text-6xl md:text-7xl font-plak font-extrabold mb-6">
+              <div className="flex-1 text-center md:text-left text-white max-w-lg order-2 md:order-1">
+                <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-plak font-extrabold mb-4 md:mb-6">
                   {slides[carouselIndex].title}
                 </h3>
-                <p className="text-lg font-poppins font-light leading-relaxed">
+                <p className="text-base md:text-lg font-poppins font-light leading-relaxed px-4 md:px-0">
                   {slides[carouselIndex].text}
                 </p>
               </div>
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1 flex justify-center order-1 md:order-2">
                 <img
                   src={slides[carouselIndex].image}
                   alt="slide"
-                  className="w-[600px] h-auto object-contain transition-all duration-500"
+                  className="w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-auto object-contain transition-all duration-500"
                 />
               </div>
             </motion.div>
           </AnimatePresence>
           <button
             onClick={() => setCarouselIndex((i) => (i + 1) % slides.length)}
-            className="text-white text-3xl px-4"
+            className="text-white text-2xl md:text-3xl px-2 md:px-4 flex-shrink-0"
           >
             &#8594;
           </button>
         </div>
 
         {/* Dots */}
-        <div className="relative z-10 flex gap-2 justify-center mt-20">
+        <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 flex gap-2 justify-center">
           {slides.map((_, i) => (
             <span
               key={i}
@@ -145,51 +155,50 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-
-      <section className="relative min-h-[100vh] flex flex-col items-center justify-center px-4 py-24 bg-transparent overflow-hidden">
-        <h2 className="text-4xl md:text-5xl font-plak font-bold text-neutral-black mb-3">
+      <section id="contact" className="relative min-h-[100vh] flex flex-col items-center justify-center px-4 py-16 md:py-24 bg-transparent overflow-hidden">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-plak font-bold text-neutral-black mb-3 text-center">
           Contact Us
         </h2>
-        <p className="text-center text-neutral-grayDark font-poppins text-base md:text-lg mb-10 max-w-2xl">
+        <p className="text-center text-neutral-grayDark font-poppins text-sm md:text-base lg:text-lg mb-8 md:mb-10 max-w-2xl px-4">
           You will get a response within 24 hours. We will explain in details
           how we can help your students grow and track their progress
           efficiently.
         </p>
 
-        <form className="bg-white/20 backdrop-blur-lg border border-white/30 shadow-xl rounded-2xl p-8 md:p-10 w-full max-w-xl flex flex-col gap-6">
+        <form className="bg-white/20 backdrop-blur-lg border border-white/30 shadow-xl rounded-2xl p-6 md:p-8 lg:p-10 w-full max-w-xl flex flex-col gap-4 md:gap-6 mx-4">
           <input
-            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
+            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-base md:text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
             placeholder="Name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           />
           <input
-            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
+            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-base md:text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
             placeholder="Email address"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
           />
           <input
-            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
+            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-base md:text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
             placeholder="Phone number"
             value={form.phone}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           />
           <input
-            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
+            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-base md:text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
             placeholder="State"
             value={form.state}
             onChange={(e) => setForm((f) => ({ ...f, state: e.target.value }))}
           />
           <input
-            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
+            className="w-full border-b border-neutral-300 bg-transparent px-2 py-3 text-base md:text-lg placeholder:text-neutral-600 focus:outline-none font-poppins"
             placeholder="School/Institution Name"
             value={form.school}
             onChange={(e) => setForm((f) => ({ ...f, school: e.target.value }))}
           />
           <button
             type="submit"
-            className="mt-4 self-center bg-white text-black px-6 py-3 rounded-full font-poppins text-base hover:bg-neutral-100 transition  "
+            className="mt-4 self-center bg-white text-black px-6 py-3 rounded-full font-poppins text-base hover:bg-neutral-100 transition"
           >
             Send Enquiry →
           </button>
@@ -197,23 +206,20 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-orange my-16 mx-auto w-[95%] rounded-[100px] py-24 shadow-md">
+      <section id="team" className="relative flex flex-col items-center justify-center overflow-hidden bg-orange my-8 md:my-16 mx-4 md:mx-auto w-[calc(100%-2rem)] md:w-[95%] rounded-[50px] md:rounded-[100px] py-16 md:py-24 shadow-md">
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-plak font-bold text-white mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-plak font-bold text-white mb-8 md:mb-12 text-center">
           Our Team
         </h2>
 
-        {/* Carousel Controls + Content */}
-        <div className="relative z-10 flex items-center justify-center gap-8 w-full max-w-7xl px-6">
+        {/* Mobile: Single member view, Desktop: Two members view */}
+        <div className="relative z-10 flex items-center justify-center gap-2 md:gap-8 w-full max-w-7xl px-4 md:px-6">
           <button
-            onClick={() =>
-              setTeamIndex(
-                (i) =>
-                  (i - 1 + Math.ceil(team.length / 2)) %
-                  Math.ceil(team.length / 2)
-              )
-            }
-            className="text-white text-3xl px-4"
+            onClick={() => {
+              const maxIndex = window.innerWidth < 768 ? team.length : Math.ceil(team.length / 2);
+              setTeamIndex((i) => (i - 1 + maxIndex) % maxIndex);
+            }}
+            className="text-white text-2xl md:text-3xl px-2 md:px-4 flex-shrink-0"
           >
             &#8592;
           </button>
@@ -225,50 +231,88 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row items-center gap-16 w-full justify-center"
+              className="flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full justify-center"
             >
-              {[...team.slice(teamIndex * 2, teamIndex * 2 + 2)].map(
-                (member, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72"
-                  >
-                    <div className="bg-white w-32 h-32 rounded-full mb-6 mx-auto shadow-lg" />
-                    <div className="text-2xl font-plak font-bold mb-2">
-                      {member.name}
+              {/* Mobile: Show one member, Desktop: Show two members */}
+              <div className="block md:hidden">
+                {(() => {
+                  const member = team[teamIndex];
+                  return (
+                    <div className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-6 py-8 rounded-3xl shadow-xl w-64">
+                      <div className="bg-white w-24 h-24 rounded-full mb-4 mx-auto shadow-lg" />
+                      <div className="text-xl font-plak font-bold mb-2">
+                        {member.name}
+                      </div>
+                      <div className="text-base text-white/80 mb-1">
+                        {member.role}
+                      </div>
+                      <div className="text-sm text-white/70">
+                        {member.experience}
+                      </div>
                     </div>
-                    <div className="text-lg text-white/80 mb-1">
-                      {member.role}
+                  );
+                })()}
+              </div>
+              
+              {/* Desktop: Show two members */}
+              <div className="hidden md:flex gap-16 justify-center">
+                {[...team.slice(teamIndex * 2, teamIndex * 2 + 2)].map(
+                  (member, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72"
+                    >
+                      <div className="bg-white w-32 h-32 rounded-full mb-6 mx-auto shadow-lg" />
+                      <div className="text-2xl font-plak font-bold mb-2">
+                        {member.name}
+                      </div>
+                      <div className="text-lg text-white/80 mb-1">
+                        {member.role}
+                      </div>
+                      <div className="text-base text-white/70">
+                        {member.experience}
+                      </div>
                     </div>
-                    <div className="text-base text-white/70">
-                      {member.experience}
-                    </div>
-                  </div>
-                )
-              )}
+                  )
+                )}
+              </div>
             </motion.div>
           </AnimatePresence>
 
           <button
-            onClick={() =>
-              setTeamIndex((i) => (i + 1) % Math.ceil(team.length / 2))
-            }
-            className="text-white text-3xl px-4"
+            onClick={() => {
+              const maxIndex = window.innerWidth < 768 ? team.length : Math.ceil(team.length / 2);
+              setTeamIndex((i) => (i + 1) % maxIndex);
+            }}
+            className="text-white text-2xl md:text-3xl px-2 md:px-4 flex-shrink-0"
           >
             &#8594;
           </button>
         </div>
 
         {/* Dots */}
-        <div className="relative z-10 flex gap-2 justify-center mt-20">
-          {Array.from({ length: Math.ceil(team.length / 2) }).map((_, i) => (
-            <span
-              key={i}
-              className={`w-3 h-3 rounded-full ${
-                i === teamIndex ? "bg-white" : "bg-white/50"
-              }`}
-            ></span>
-          ))}
+        <div className="relative z-10 flex gap-2 justify-center mt-12 md:mt-20">
+          {/* Mobile: 4 dots for 4 members, Desktop: 2 dots for 2 pairs */}
+          <div className="block md:hidden">
+            {team.map((_, i) => (
+              <span
+                key={i}
+                className={`w-3 h-3 rounded-full ${
+                  i === teamIndex ? "bg-white" : "bg-white/50"
+                }`}
+              ></span>
+            ))}
+          </div>
+          <div className="hidden md:block">
+            {Array.from({ length: Math.ceil(team.length / 2) }).map((_, i) => (
+              <span
+                key={i}
+                className={`w-3 h-3 rounded-full mr-2 ${
+                  i === teamIndex ? "bg-white" : "bg-white/50"
+                }`}
+              ></span>
+            ))}
+          </div>
         </div>
       </section>
     </main>
