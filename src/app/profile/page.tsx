@@ -102,10 +102,11 @@ export default function ProfilePage() {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: easeOut,
+      },
+    },
   };
+  
 
   return (
     <div className="min-h-screen bg-transparent relative">
