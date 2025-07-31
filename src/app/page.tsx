@@ -7,22 +7,22 @@ import { useRouter } from "next/navigation";
 const slides = [
   {
     title: "EdQraft",
-    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    text: "EdQraft is an AI-powered engine that generates real-time, syllabus-aligned MCQs and quizzes within seconds.",
     image: "/EdQraft.png",
   },
   {
     title: "EdPulse",
-    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    text: "EdPulse is a student-friendly, remote RF clicker system that captures real-time responses during classroom quizzes. ",
     image: "/EdPulse.png",
   },
   {
     title: "EdSight",
-    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    text: "EdSight processes clicker and quiz data to generate deep, personalized insights. ",
     image: "/EdSight.png",
   },
   {
     title: "Edviser",
-    text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
+    text: "EdViser is your personal AI tutor - It answers academic questions, suggests study resources, and guides students in real-time across subjects, adapting to individual learning styles and gaps.",
     image: "/Edviser.png",
   },
 ];
@@ -282,12 +282,7 @@ export default function Home() {
                       onClick={() => handleProfileClick(member.profileId)}
                       className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72 cursor-pointer hover:bg-white/30 hover:scale-105 transition-all duration-300"
                     >
-                      <img
-  src={member.image}
-  alt={member.name}
-  className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full mb-4 md:mb-6 mx-auto shadow-lg"
-/>
-
+                      <div className="bg-white w-32 h-32 rounded-full mb-6 mx-auto shadow-lg" />
                       <div className="text-2xl font-plak font-bold mb-2">
                         {member.name}
                       </div>
