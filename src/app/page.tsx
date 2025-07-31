@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const slides = [
   {
@@ -20,7 +21,7 @@ const slides = [
     image: "/EdSight.png",
   },
   {
-    title: "Edviser Tutor",
+    title: "Edviser",
     text: "Powered by data and driven by AI. Edwance.ai gives every student, teachers and parents what they truly need: track performance, personalised actions, and support every learner in real time!",
     image: "/Edviser.png",
   },
@@ -28,26 +29,28 @@ const slides = [
 
 const team = [
   {
-    name: "Alice Smith",
-    role: "Founder",
+    name: "Saurabh Pillai",
+    role: "Founder & CEO",
     experience: "5+ Years of Experience",
+    profileId: "saurabh-pillai",
+    image: "/saurabh.jpg",
   },
   {
-    name: "Bob Johnson",
+    name: "S Karan Raju",
+    role: "Co-Founder & CTO",
+    experience: "5+ Years of Experience",
+    profileId: "karan-raju",
+    image: "/karan.jpg",
+  },
+  {
+    name: "Mr. Ricky Bedi",
     role: "Mentor",
-    experience: "5+ Years of Experience",
-  },
-  {
-    name: "Carol Lee",
-    role: "Developer",
-    experience: "3+ Years of Experience",
-  },
-  {
-    name: "David Kim",
-    role: "Designer",
-    experience: "4+ Years of Experience",
+    experience: "35+ Years of Experience",
+    profileId: "ricky-bedi",
+    image: "/ricky.jpg",
   },
 ];
+
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -68,10 +71,15 @@ export default function Home() {
     school: "",
   });
 
+  const router = useRouter(); // Add this
+
+  // Function to handle profile navigation
+  const handleProfileClick = (profileId: string) => {
+    router.push(`/profile?id=${profileId}`);
+  };
+
   return (
     <main className="bg-transparent">
-
-
       {/* Home Section */}
       <section id="home" className="flex flex-col items-center justify-center text-center min-h-[100vh] pt-20 md:pt-30 pb-16 md:pb-25 relative bg-transparent px-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-plak font-extrabold leading-tight">
@@ -205,7 +213,7 @@ export default function Home() {
         </form>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section - UPDATED WITH CLICK HANDLERS */}
       <section id="team" className="relative flex flex-col items-center justify-center overflow-hidden bg-orange my-8 md:my-16 mx-4 md:mx-auto w-[calc(100%-2rem)] md:w-[95%] rounded-[50px] md:rounded-[100px] py-16 md:py-24 shadow-md">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-plak font-bold text-white mb-8 md:mb-12 text-center">
@@ -238,16 +246,27 @@ export default function Home() {
                 {(() => {
                   const member = team[teamIndex];
                   return (
-                    <div className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-6 py-8 rounded-3xl shadow-xl w-64">
-                      <div className="bg-white w-24 h-24 rounded-full mb-4 mx-auto shadow-lg" />
+                    <div 
+                      onClick={() => handleProfileClick(member.profileId)}
+                      className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-6 py-8 rounded-3xl shadow-xl w-64 cursor-pointer hover:bg-white/30 hover:scale-105 transition-all duration-300"
+                    >
+                      <img
+  src={member.image}
+  alt={member.name}
+  className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full mb-4 md:mb-6 mx-auto shadow-lg"
+/>
+
                       <div className="text-xl font-plak font-bold mb-2">
                         {member.name}
                       </div>
                       <div className="text-base text-white/80 mb-1">
                         {member.role}
                       </div>
-                      <div className="text-sm text-white/70">
+                      <div className="text-sm text-white/70 mb-3">
                         {member.experience}
+                      </div>
+                      <div className="text-sm text-white/90 font-semibold">
+                        Click to view profile →
                       </div>
                     </div>
                   );
@@ -260,17 +279,26 @@ export default function Home() {
                   (member, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72"
+                      onClick={() => handleProfileClick(member.profileId)}
+                      className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72 cursor-pointer hover:bg-white/30 hover:scale-105 transition-all duration-300"
                     >
-                      <div className="bg-white w-32 h-32 rounded-full mb-6 mx-auto shadow-lg" />
+                      <img
+  src={member.image}
+  alt={member.name}
+  className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full mb-4 md:mb-6 mx-auto shadow-lg"
+/>
+
                       <div className="text-2xl font-plak font-bold mb-2">
                         {member.name}
                       </div>
                       <div className="text-lg text-white/80 mb-1">
                         {member.role}
                       </div>
-                      <div className="text-base text-white/70">
+                      <div className="text-base text-white/70 mb-3">
                         {member.experience}
+                      </div>
+                      <div className="text-sm text-white/90 font-semibold">
+                        Click to view profile →
                       </div>
                     </div>
                   )

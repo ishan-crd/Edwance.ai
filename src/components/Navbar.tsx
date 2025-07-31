@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Products", href: "#products" },
-  { name: "Team", href: "#team" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "Products", href: "/#products" },
+  { name: "Team", href: "/#team" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -18,9 +19,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-plak font-bold text-orange">
-              Edwance
+          <div className="flex items-center space-x-2 flex-shrink-0">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/favicon.png"
+                alt="Edwance Logo"
+                width={28}
+                height={28}
+                className="rounded-sm"
+              />
+              <span className="text-2xl font-plak font-bold text-orange">
+                Edwance.ai
+              </span>
             </Link>
           </div>
 
@@ -49,7 +59,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile menu button - Only show on mobile */}
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -76,7 +86,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu - Only show on mobile when menu is open */}
+      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
