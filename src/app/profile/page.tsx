@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import FloatingIcons from "../../components/FloatingIcons";
+import { easeOut } from "framer-motion";
+
 
 const teamProfiles = {
   "saurabh-pillai": {
@@ -87,10 +89,11 @@ export default function ProfilePage() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: easeOut,
+      },
+    },
   };
+  
 
   const cardVariants = {
     hidden: { scale: 0.9, opacity: 0 },
@@ -135,15 +138,15 @@ export default function ProfilePage() {
     />
   </div>
 </div>
-
-              <motion.div 
+{/* Experience Div */}      
+              {/* <motion.div 
                 className="absolute -bottom-4 -right-4 bg-orange text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8, duration: 0.3 }}
               >
                 {currentProfile.experience}
-              </motion.div>
+              </motion.div> */}
             </motion.div>
             
             <motion.h1 
