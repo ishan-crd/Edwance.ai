@@ -282,7 +282,11 @@ export default function Home() {
                       onClick={() => handleProfileClick(member.profileId)}
                       className="bg-white/20 backdrop-blur-lg border border-white/30 text-white text-center px-8 py-10 rounded-3xl shadow-xl w-72 cursor-pointer hover:bg-white/30 hover:scale-105 transition-all duration-300"
                     >
-                      <div className="bg-white w-32 h-32 rounded-full mb-6 mx-auto shadow-lg" />
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-32 h-32 object-cover rounded-full mb-6 mx-auto shadow-lg"
+                      />
                       <div className="text-2xl font-plak font-bold mb-2">
                         {member.name}
                       </div>
