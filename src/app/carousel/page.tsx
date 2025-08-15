@@ -99,16 +99,15 @@ export default function CarouselPage() {
               </button>
             </div>
 
-            {/* Dots Indicator */}
-            <div className="flex gap-3 justify-center">
+            {/* Slide Indicators: rounded bars at top */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-4 justify-center">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setIndex(i)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                    i === index
-                      ? "bg-white scale-110"
-                      : "bg-white/50 hover:bg-white/70"
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-1 rounded-full transition-colors duration-300 ${
+                    i === index ? "bg-orangeDark w-24" : "bg-white w-24"
                   }`}
                 />
               ))}

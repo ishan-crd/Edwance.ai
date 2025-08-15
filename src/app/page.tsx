@@ -149,15 +149,19 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Dots */}
-        <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 flex gap-2 justify-center">
+        {/* Slide Indicators: rounded bars at top */}
+        <div className="absolute top-6 md:top-10 left-1/2 transform -translate-x-1/2 z-10 flex gap-4 justify-center">
           {slides.map((_, i) => (
-            <span
+            <button
               key={i}
-              className={`w-3 h-3 rounded-full ${
-                i === carouselIndex ? "bg-white" : "bg-white/50"
+              onClick={() => setCarouselIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1 md:h-1.5 rounded-full transition-colors duration-300 ${
+                i === carouselIndex
+                  ? "bg-orangeDark w-16 sm:w-20 md:w-24"
+                  : "bg-white w-16 sm:w-20 md:w-24"
               }`}
-            ></span>
+            />
           ))}
         </div>
       </section>
