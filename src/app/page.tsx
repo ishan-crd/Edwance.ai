@@ -21,9 +21,9 @@ const slides = [
     image: "/EdSight.png",
   },
   {
-    title: "Edviser",
-    text: "EdViser is your personal AI tutor - It answers academic questions, suggests study resources, and guides students in real-time across subjects, adapting to individual learning styles and gaps.",
-    image: "/Edviser.png",
+    title: "EdWiser",
+    text: "EdWiser is your personal AI tutor - It answers academic questions, suggests study resources, and guides students in real-time across subjects, adapting to individual learning styles and gaps.",
+    image: "/EdWiser.png",
   },
 ];
 
