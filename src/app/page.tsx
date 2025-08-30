@@ -94,9 +94,11 @@ export default function Home() {
           <div className="text-neutral-black">learning is here.</div>
         </h1>
         <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center w-full max-w-sm sm:max-w-none">
-          <button className="bg-orange text-white px-6 md:px-5 py-3 md:py-2.5 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
-            Try Now →
-          </button>
+          <Link href="/signup">
+            <button className="bg-orange text-white px-6 md:px-5 py-3 md:py-2.5 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
+              Try Now →
+            </button>
+          </Link>
           <button className="border border-orange text-orange px-6 md:px-5 py-3 md:py-2.5 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
             Book a Demo
           </button>

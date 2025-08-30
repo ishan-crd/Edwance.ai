@@ -51,12 +51,16 @@ export default function Navbar() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-orange text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
-              Try Now
-            </button>
-            <button className="border border-orange text-orange px-4 py-2 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
-              Book Demo
-            </button>
+            <Link href="/signup">
+              <button className="bg-orange text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
+                Try Now
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="border border-orange text-orange px-4 py-2 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
+                Login
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -107,12 +111,16 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 px-3 pt-4">
-                <button className="bg-orange text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
-                  Try Now
-                </button>
-                <button className="border border-orange text-orange px-4 py-2 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
-                  Book Demo
-                </button>
+                <Link href="/signup">
+                  <button className="w-full bg-orange text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-md hover:bg-orangeDark transition">
+                    Try Now
+                  </button>
+                </Link>
+                <Link href="/login">
+                  <button className="w-full border border-orange text-orange px-4 py-2 rounded-lg font-semibold text-sm hover:bg-orange hover:text-white transition">
+                    Login
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>
